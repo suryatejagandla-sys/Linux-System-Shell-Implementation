@@ -1,7 +1,22 @@
-LSH
+# Linux System Shell Implementation (C)
+
+A minimal, high-performance command-line interpreter built in C to explore Unix system internals and process management.
+
+## Technical Objectives
+- **Process Lifecycle:** Utilizing `fork()`, `exec()`, and `wait()` system calls to manage process creation and synchronization.
+- **Memory Management:** Implementing dynamic memory allocation and buffer management for command parsing.
+- **Built-in Commands:** Development of internal shell commands (cd, help, exit) to understand shell execution flow.
+
+## Systems Programming Concepts
+- **Child & Parent Processes:** Handling concurrent execution and process IDs (PID).
+- **Tokenization:** Implementing a custom parser to handle user input strings.
+- **System Calls:** Direct interaction with the Linux kernel via standard C libraries.
+
+## Relevance to C-DAC
+Understanding the underlying mechanisms of an Operating System is critical for High-Performance Computing (HPC) and system-level R&D at C-DAC.LSH
 ===
 
-LSH is a simple implementation of a shell in C, and it is the subject of a
+It is a simple implementation of a shell in C, and it is the subject of a
 tutorial on [my website][1].  It demonstrates the basics of how a shell works.
 That is: read, parse, fork, exec, and wait.  Since its purpose is demonstration
 (not feature completeness or even fitness for casual use), it has many
