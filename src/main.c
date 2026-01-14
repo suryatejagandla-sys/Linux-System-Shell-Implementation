@@ -9,6 +9,23 @@
   @brief        LSH (Libstephen SHell)
 
 *******************************************************************************/
+// Using malloc() to dynamically allocate memory for command arguments
+// to ensure the shell can handle varying input lengths efficiently.
+char **args = malloc(bufsize * sizeof(char*));
+
+// Using fork() to create a duplicate process. 
+// The child process will execute the command while the parent waits.
+pid = fork();
+if (pid == 0) {
+    // Child process logic
+} else if (pid < 0) {
+    // Error handling for failed fork
+} else {
+    // Parent process waits for child to finish to prevent 'zombie' processes
+    do {
+        waitpid(pid, &status, WUNTRACED);
+    } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+}
 
 #include <sys/wait.h>
 #include <sys/types.h>
